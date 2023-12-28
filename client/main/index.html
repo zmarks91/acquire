@@ -6,7 +6,6 @@
     <meta name="description" content="Play Acquire Online" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="css/main.css" />
 
     <script src="//cdnjs.cloudflare.com/ajax/libs/json3/3.3.2/json3.min.js"></script>
@@ -27,37 +26,41 @@
 
     <script src="js/main.js"></script>
 </head>
-<body>
+<body class="welcome-page">
     <div class="page" id="page-loading">
         <h1>Acquire</h1>
         <p>Loading...</p>
     </div>
-    <div class="page container padding-left-1 padding-right-1" id="page-login" data-version="VERSION">
-
-        <h1 class="">Acquire</h1>
-        <div class="row">
-            <div class="col-md-6 mb-3">
+    <div class="page" id="page-login" data-version="VERSION">
+        <div class="header tile">
+        <h1>Acquire</h1>
+        <p>
+            Here, you can play the Acquire board game. Many user interface and game play elements are based on Kensit's
+            <a href="http://www3.telus.net/kensit/NetAcquire/">NetAcquire</a> Windows application. Thank you Kensit for the great design!
+        </p>
+        </div>
+        <div class="flex-row">
+            <div class="tile">
                 <h2>Login</h2>
                 <p>Already have a login? Enter your credentials below.</p>
                 <div id="login-error-message"></div>
-                <form id="login-form">
-                    <div class="row">
-                        <div class="mb-3 col">
-                            <label for="login-form-username" class="form-label">Username</label>
-                            <input type="text" id="login-form-username" class="form-control" />
-                        </div>
-                        <div class="mb-3 col">
-                            <label for="login-form-password" class="form-label">Password</label>
-                            <input type="password" id="login-form-password" class="form-control" />
-                        </div>
+                <form id="login-form" class="flex-form">
+                    <div>
+                        <label for="login-form-username">Username</label>
+                        <input type="text" id="login-form-username" />
                     </div>
-                    <div class="row justify-content-end">
-                        <input type="submit" value="Login" class="btn btn-primary col-3 me-2" />
+                    <div>
+                        <label for="login-form-password">Password</label>
+                        <input type="password" id="login-form-password" />
                     </div>
 
+                    <div>
+                        <input type="submit" value="Login" class="btn btn-primary" />
+                    </div>
                 </form>
             </div>
-            <div class="col-md-6 mb-3">
+
+            <div class="tile">
                 <h2>Set Password</h2>
                 <p>Don't have a login yet?</p>
                 <ul>
@@ -67,73 +70,72 @@
                 </ul>
                 <div id="set-password-success-message"></div>
                 <div id="set-password-error-message"></div>
-                <form id="set-password-form">
-                    <div class="row">
-                        <div class="mb-3 col">
-                            <label for="set-password-form-username" class="form-label">Username</label>
-                            <input type="text" id="set-password-form-username" class="form-control" />
-                        </div>
-                        <div class="mb-3 col">
-                            <label for="set-password-form-password" class="form-label">Password</label>
-                            <input type="password" id="set-password-form-password" class="form-control" />
-                        </div>
-                        <div class="mb-3 col">
-                            <label for="set-password-form-password-repeat" class="form-label">Repeat Password</label>
-                            <input type="password" id="set-password-form-password-repeat" class="form-control" />
-                        </div>
+                <form id="set-password-form" class="flex-form">
+                    <div>
+                        <label for="set-password-form-username">Username</label>
+                        <input type="text" id="set-password-form-username" />
                     </div>
-                    <div class="row justify-content-end">
-                        <input type="submit" value="Set Password" class="btn btn-primary col-3 me-2" />
+                    <div>
+                        <label for="set-password-form-password">Password</label>
+                        <input type="password" id="set-password-form-password" />
+                    </div>
+                    <div>
+                        <label for="set-password-form-password-repeat">Repeat Password</label>
+                        <input type="password" id="set-password-form-password-repeat" />
                     </div>
 
+                    <div>
+                        <input type="submit" value="Set Password" class="btn btn-primary" />
+                    </div>
                 </form>
             </div>
-        </div>
-        <div class="row">
-            <h2>About</h2>
-            <p>
-                Here, you can play the Acquire board game. Many user interface and game play elements are based on Kensit's
-                <a href="http://www3.telus.net/kensit/NetAcquire/">NetAcquire</a> Windows application. Thank you Kensit for the great design!
-            </p>
 
-            <p>Notes regarding statistics:</p>
-            <ul>
-                <li>
-                    View <a href="stats/">stats</a> calculated using the <a href="http://research.microsoft.com/en-us/projects/trueskill/">TrueSkill</a> algorithm.
-                    Default parameters of a <a href="http://trueskill.org/">TrueSkill library</a> are used except beta is set to sigma and the draw probabilities are set
-                    based on historical game results.
-                </li>
-                <li>
-                    See the "How to Build a Leaderboard" section in an article about
-                    <a href="http://research.microsoft.com/en-us/projects/trueskill/details.aspx">TrueSkill Details</a> for the reasoning behind the ratings. I set "k" to
-                    3, as suggested in that section.
-                </li>
-            </ul>
-            <p>Some non-obvious features:</p>
-            <ul>
-                <li>You can play a tile by clicking its associated location on the game board.</li>
-                <li>
-                    There are keyboard shortcuts, in addition to the normal Tab and Shift-Tab, for game actions:
-                    <ul>
-                        <li>Play tile: press 1-6 to move to a tile, enter to play it.</li>
-                        <li>Select chain: press 1-7 or L,T,A,F,W,C,I to move to a chain, enter to select it.</li>
-                        <li>
-                            Dispose of shares: press 1-7 for the corresponding button (left-to-right), K for Keep All, T for Trade ▲, Shift-T for Trade ▼, S for Sell ▲,
-                            Shift-S for Sell ▼, 8 or O to move to the OK button, enter to press it.
-                        </li>
-                        <li>
-                            Purchase shares: press 1-7 or L,T,A,F,W,C,I to add a chain to the cart, Shift-1-7 or Shift-L,T,A,F,W,C,I to remove a chain from the cart, DELETE
-                            or MINUS to remove the right-most chain from the cart, E or ASTERISK to toggle the End Game checkbox, O to move to the OK button, enter to press
-                            it.
-                        </li>
-                    </ul>
-                </li>
-                <li>The IP address of any player can be seen by hovering over their name in the lobby or on the game score sheet.</li>
-            </ul>
-            <p>See <a href="https://github.com/tlstyer/acquire">my code</a> or <a href="https://trello.com/b/ddyGnH5l/acquire">my to-do list</a>.</p>
-            <p>You can <a href="mailto:tlstyer@gmail.com">send me an email</a> with your questions or comments.</p>
+
+            <div class="tile">
+                <h2>Statistics</h2>
+                <ul>
+                    <li>
+                        View <a href="stats/">stats</a> calculated using the <a href="http://research.microsoft.com/en-us/projects/trueskill/">TrueSkill</a> algorithm.
+                        Default parameters of a <a href="http://trueskill.org/">TrueSkill library</a> are used except beta is set to sigma and the draw probabilities are set
+                        based on historical game results.
+                    </li>
+                    <li>
+                        See the "How to Build a Leaderboard" section in an article about
+                        <a href="http://research.microsoft.com/en-us/projects/trueskill/details.aspx">TrueSkill Details</a> for the reasoning behind the ratings. I set "k" to
+                        3, as suggested in that section.
+                    </li>
+                </ul>
+            </div>
+            <div class="tile">
+                <h2>Advanced Features</h2>
+                <ul>
+                    <li>You can play a tile by clicking its associated location on the game board.</li>
+                    <li>
+                        There are keyboard shortcuts, in addition to the normal Tab and Shift-Tab, for game actions:
+                        <ul>
+                            <li>Play tile: press 1-6 to move to a tile, enter to play it.</li>
+                            <li>Select chain: press 1-7 or L,T,A,F,W,C,I to move to a chain, enter to select it.</li>
+                            <li>
+                                Dispose of shares: press 1-7 for the corresponding button (left-to-right), K for Keep All, T for Trade ▲, Shift-T for Trade ▼, S for Sell ▲,
+                                Shift-S for Sell ▼, 8 or O to move to the OK button, enter to press it.
+                            </li>
+                            <li>
+                                Purchase shares: press 1-7 or L,T,A,F,W,C,I to add a chain to the cart, Shift-1-7 or Shift-L,T,A,F,W,C,I to remove a chain from the cart, DELETE
+                                or MINUS to remove the right-most chain from the cart, E or ASTERISK to toggle the End Game checkbox, O to move to the OK button, enter to press
+                                it.
+                            </li>
+                        </ul>
+                    </li>
+                    <li>The IP address of any player can be seen by hovering over their name in the lobby or on the game score sheet.</li>
+                </ul>                
+            </div>
+            <div class="tile">
+                <h2>More Links</h2>
+                <p>See <a href="https://github.com/tlstyer/acquire">my code</a> or <a href="https://trello.com/b/ddyGnH5l/acquire">my to-do list</a>.</p>
+                <p>You can <a href="mailto:tlstyer@gmail.com">send me an email</a> with your questions or comments.</p>
+            </div>
         </div>
-    </div>
+
     <div class="page" id="page-connecting">
         <h1>Acquire</h1>
         <p>Connecting to the server...</p>

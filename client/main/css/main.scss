@@ -6,8 +6,9 @@ html {
   -webkit-text-size-adjust: 100%;
 }
 body {
-  margin: 0;
+    margin: 0;    
 }
+
 button,
 input,
 select {
@@ -454,4 +455,50 @@ span.username {
   &:focus {
     box-shadow: 0px 0px 2px 0px rgba(50, 50, 50, 1);
   }
+}
+
+
+.welcome-page {
+    background-color: $color-scroll-div-background;
+    box-sizing: border-box;
+}
+
+.welcome-page h1{
+    text-align:center;
+}
+
+.welcome-page .tile {
+    background-color: $color-background-netacquire;
+    border-radius: .5rem;
+    padding: 2rem;
+    margin: 1rem;
+}
+
+.flex-row {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.flex-row > div {    
+    flex:40%;      
+}
+
+.welcome-page .flex-form > div {
+    display: flex;
+    justify-content: flex-end;
+    padding: .5em;
+}
+
+.welcome-page .flex-form label {
+    padding: .5em 1em .5em 0;
+    flex: 1;
+}
+
+.flex-form input {
+    flex: 3;
+}
+
+.flex-form  input,
+.flex-form  button {
+    padding: .5em;
 }
