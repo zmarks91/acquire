@@ -8,7 +8,6 @@ html {
 body {
     margin: 0;    
 }
-
 button,
 input,
 select {
@@ -457,21 +456,34 @@ span.username {
   }
 }
 
+$gutter-size: 1rem;
+$form-element-padding: .4em;
+
+.page#page-login {
+    padding: 0 0 $gutter-size $gutter-size;
+}
 
 .welcome-page {
     background-color: $color-scroll-div-background;
     box-sizing: border-box;
 }
 
-.welcome-page h1{
-    text-align:center;
+.welcome-page h1, .welcome-page h2 {
+    margin-top: 0;
+    border-bottom: #c0c0ff 1px solid;
+    padding-bottom: 1rem;
+}
+
+.welcome-page h1 {
+    text-align: center;    
 }
 
 .welcome-page .tile {
     background-color: $color-background-netacquire;
     border-radius: .5rem;
-    padding: 2rem;
-    margin: 1rem;
+    padding: 1.5rem;
+    margin-top: $gutter-size;
+    margin-right: $gutter-size;
 }
 
 .flex-row {
@@ -486,11 +498,11 @@ span.username {
 .welcome-page .flex-form > div {
     display: flex;
     justify-content: flex-end;
-    padding: .5em;
+    padding: $form-element-padding;
 }
 
 .welcome-page .flex-form label {
-    padding: .5em 1em .5em 0;
+    padding: $form-element-padding 2*$form-element-padding $form-element-padding 0;
     flex: 1;
 }
 
@@ -500,5 +512,5 @@ span.username {
 
 .flex-form  input,
 .flex-form  button {
-    padding: .5em;
+    padding: $form-element-padding;
 }
