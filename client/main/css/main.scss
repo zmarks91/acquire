@@ -456,18 +456,19 @@ span.username {
   }
 }
 
-.team-cell::before {    
-    margin-left: .5em;
-    border: black solid 1px;    
+.team-cell::before {
+    margin-right: .2em;
+    border: black solid 1px;
     color: white;
 }
 
-.team-cell-one::after {
+.team-cell-one::before {
     content: "T1";
-    background-color: blue;
+    background-color: #c0c0ff;
 }
 
-.team-cell-two::after {
+.team-cell-two::before {
     content: "T2";
-    background-color: red;
+    background-color: #ffc080;
+    ;
 }
